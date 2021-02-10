@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    name: miaosha
+    url: jdbc:mysql://127.0.0.1:3306/miaosha?useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&amp;useSSL=false
+    username: root
+    password: 189wyk==
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 10
+    jedis:
+      pool:
+        max-active: 50
+        min-idle: 20
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+logging:
+  level:
+    com.example.demo.dao: debug
+mq:
+  nameserver:
+    addr: 18.222.249.56:9876
+  topicname: stock
+
+

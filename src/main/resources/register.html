@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/assets/global/css/components.css" rel="stylesheet" type="text/css">
+    <link href="static/assets/admin/pages/css/login.css" rel="stylesheet" type="text/css">
+    <script src = "static/assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src = "./gethost.js" type="text/javascript"></script>
+
+</head>
+<body class="login">
+<div class="content">
+    <h3 class="form-title">User Register</h3>
+    <div class="form-group">
+        <label class="control-label">telephone</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="telephone" name = "telephone" id = "telephone">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">otpCode</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="otpCode" name = "otpCode" id = "otpCode">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">user name</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="user name" name = "name" id = "name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">gender</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="gender" name = "gender" id = "gender">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">age</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="age" name = "age" id = "age">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">password</label>
+        <div>
+            <input class="form-control" type = "password" placeholder="password" name = "password" id = "password">
+        </div>
+    </div>
+    <div class="form-actions">
+        <button class="btn blue" id = "register" type = "submit">
+            submit register
+        </button>
+    </div>
+</div>
+
+</body>
+
+<script>
+    jQuery(document).ready(function () {
+        $("#register").on("click",function () {
+            var telephone =$("#telephone").val();
+            var password =$("#password").val();
+            var age =$("#age").val();
+            var gender =$("#gender").val();
+            var name =$("#name").val();
+            var otpCode =$("#otpCode").val();
+            if(telephone==null||telephone==""){
+                alert("telephone cannot be empty");
+                return false;
+            }
+            if(password==null||password==""){
+                alert("password cannot be empty");
+                return false;
+            }
+            if(age==null||age==""){
+                alert("age cannot be empty");
+                return false;
+            }
+            if(gender==null||gender==""){
+                alert("gender cannot be empty");
+                return false;
+            }
+            if(otpCode==null||otpCode==""){
+                alert("otpcode cannot be empty");
+                return false;
+            }
+            if(name==null||name==""){
+                alert("name cannot be empty");
+                return false;
+            }
+
+            $.ajax({
+                type:"POST",
+                contentType:"application/x-www-form-urlencoded",
+                url:"http://"+g_host+"/user/register",
+                data:{
+                    "telephone":$("#telephone").val(),
+                    "password":password,
+                    "age":age,
+                    "gender":gender,
+                    "otpCode":otpCode,
+                    "name":name
+                },
+                xhrFields:{withCredentials:true},
+                success:function(data){
+                    if(data.status=="success"){
+                        alert("注册成功");
+                        window.location.href="login.html"
+                    }
+                    else{
+                        alert("注册失败"+data.data.errMsg);
+                    }
+                },
+                error:function (data) {
+                    alert("注册失败 "+data.responseText);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/assets/global/css/components.css" rel="stylesheet" type="text/css">
+    <link href="static/assets/admin/pages/css/login.css" rel="stylesheet" type="text/css">
+    <script src = "static/assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src = "./gethost.js" type="text/javascript"></script>
+
+</head>
+<body class="login">
+<div class="content">
+    <h3 class="form-title">Create Item</h3>
+    <div class="form-group">
+        <label class="control-label">Itemname</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="Itemname" name = "title" id = "title">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">ItemDesc</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="ItemDesc" name = "description" id = "description">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">price</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="price" name = "price" id = "price">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">image</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="imgUrl" name = "imgUrl" id = "imgUrl">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">stock</label>
+        <div>
+            <input class="form-control" type = "text" placeholder="stock" name = "stock" id = "stock">
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button class="btn blue" id = "create" type = "submit">
+            submit create
+        </button>
+    </div>
+</div>
+
+</body>
+
+<script>
+    jQuery(document).ready(function () {
+        $("#create").on("click",function () {
+            var title =$("#title").val();
+            var description =$("#description").val();
+            var price =$("#price").val();
+            var stock =$("#stock").val();
+            var imgUrl =$("#imgUrl").val();
+
+            if(title==null||title==""){
+                alert("item name cannot be empty");
+                return false;
+            }
+            if(description==null||description==""){
+                alert("description cannot be empty");
+                return false;
+            }
+            if(price==null||price==""){
+                alert("price cannot be empty");
+                return false;
+            }
+            if(stock==null||stock==""){
+                alert("stock cannot be empty");
+                return false;
+            }
+            if(imgUrl==null||imgUrl==""){
+                alert("url cannot be empty");
+                return false;
+            }
+
+
+            $.ajax({
+                type:"POST",
+                contentType:"application/x-www-form-urlencoded",
+                url:"http://"+g_host+"/item/create",
+                data:{
+                    "title":$("#title").val(),
+                    "description":description,
+                    "imgUrl":imgUrl,
+                    "price":price,
+                    "stock":stock,
+
+                },
+                xhrFields:{withCredentials:true},
+                success:function(data){
+                    if(data.status=="success"){
+                        alert("创建成功");
+
+                    }
+                    else{
+                        alert("创建失败"+data.data.errMsg);
+                    }
+                },
+                error:function (data) {
+                    alert("创建失败 "+data.responseText);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</html>

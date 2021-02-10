@@ -1,0 +1,41 @@
+package com.example.demo.controller;
+
+import com.example.demo.error.BusinessException;
+import com.example.demo.error.EnumBUsinessError;
+import com.example.demo.responce.CommonReturnType;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
+
+public class BaseController {
+
+    public static final String CONTENT_TYPE_FORMED = "application/x-www-form-urlencoded";
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Object handlerException(HttpServletRequest request, Exception ex){
+        Map<String,Object> responseData = new HashMap<>();
+        if(ex instanceof BusinessException){
+            BusinessException businessException = (BusinessException)ex ;
+
+
+            responseData.put("errCode",businessException.getErrCode());
+            responseData.put("errMsg",businessException.getErrMsg());
+
+        }
+        else{
+            //Map<String,Object> responseData = new HashMap<>();
+            responseData.put("errCode", EnumBUsinessError.UNKNOWN_ERROR.getErrCode());
+            responseData.put("errMsg",EnumBUsinessError.UNKNOWN_ERROR.getErrMsg());
+            //return CommonReturnType.create(responseData,"fail");
+        }
+        return CommonReturnType.create(responseData,"fail");
+
+
+    }
+}
