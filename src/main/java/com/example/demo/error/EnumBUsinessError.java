@@ -4,6 +4,7 @@ public enum EnumBUsinessError implements CommonError {
     //common error type 00001
     PARAMETER_VALIDATION_ERROR(10001,"parameter invalid"),
     UNKNOWN_ERROR(10002,"Unknown Error"),
+    WRONG_ACCOUNT(10003,"This account is not valid, please use syr email"),
 
     //10000 user inf err
     USER_NOT_EXIST(20001,"User Not Exist"),
