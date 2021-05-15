@@ -4,7 +4,7 @@ http://3.137.170.120:8080/resources/listitem.html(List product page)
 http://3.137.170.120:8080/resources/createitem.html(Create product page)
 http://3.137.170.120:8080/resources/login.html(Login page)
 
-This project is the source code of Qucik Orange Backend. To run this project on your device, you need to install redis and mysql first and run redis server and mysql server. The configuration file is called application.yml.
+This main branch is the source code of Qucik Orange Backend. To run this project on your device, you need to install java, redis and mysql first and run redis server and mysql server. The configuration file is called application.yml.
 You can modify this file according to your personal condition. To access the service on local, you can go to the src/main/resources directory, there are several html files. Open any one of the files, then you will be able to access the corresponding service.
 
 The register function is completed, you could use your SU email to register. Our system will generaze a otp code which you will need during your registera. 
