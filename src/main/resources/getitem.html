@@ -88,7 +88,7 @@
         $("#createorder").on("click",function () {
             var token = window.localStorage["token"];
             if(token==null){
-                alert("未登录，无法下单");
+                alert("Login to make order");
                 window.location.href="login.html";
                 return false;
             }
@@ -105,11 +105,11 @@
                 success:function(data){
                     if(data.status=="success"){
 
-                        alert("下单成功");
+                        alert("You order has been made successfully");
                         window.location.reload();
                     }
                     else{
-                        alert("下单失败"+data.data.errMsg);
+                        alert("Fail to make order"+data.data.errMsg);
                         //alert(data.data.errCode);
                         if(data.data.errCode == 20003){
                             window.location.href="login.html";
@@ -117,7 +117,7 @@
                     }
                 },
                 error:function (data) {
-                    alert("下单失败 "+data.responseText);
+                    alert("Fail to make order "+data.responseText);
                 }
             })
 
@@ -140,11 +140,11 @@
 
                 }
                 else{
-                    alert("获取信息失败"+data.data.errMsg);
+                    alert("Fail to get Information "+data.data.errMsg);
                 }
             },
             error:function (data) {
-                alert("获取信息失败 "+data.responseText);
+                alert("Fail to get information "+data.responseText);
             }
         });
     });
@@ -165,12 +165,12 @@
                 g_itemVO.promoStatus = 2;
                 reloadDom();
             }
-            $("#promoStartDate").text("秒杀活动将于: "+g_itemVO.startDate+"开始 倒计时:"+delta+"秒");
+            $("#promoStartDate").text("Promotions: "+g_itemVO.startDate+"will begin in:"+delta+"Seconds");
             $("#promoPrice").text(g_itemVO.promoPricec);
             $("#createorder").attr("disabled",true);
         }
         else if(g_itemVO.promoStatus == 2){
-            $("#promoStartDate").text("秒杀正在进行中");
+            $("#promoStartDate").text("On Discount");
             $("#promoPrice").text(g_itemVO.promoPrice);
             $("#createorder").attr("disabled",false);
             $("#normalPriceContainer").hide();

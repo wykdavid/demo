@@ -14,9 +14,9 @@
     <div class="content">
         <h3 class="form-title">Get otp information</h3>
         <div class="form-group">
-            <label class="control-label">telephone</label>
+            <label class="control-label">Email</label>
             <div>
-                <input class="form-control" type = "text" placeholder="telephone" name = "telephone" id = "telephone">
+                <input class="form-control" type = "text" placeholder="SU Email" name = "telephone" id = "telephone">
             </div>
         </div>
         <div class="form-actions">
@@ -47,7 +47,7 @@
                 success:function(data){
                     if(data.status=="success"){
                         alert("otp already sent, please check");
-                        window.location.href="./register.html";
+                        window.location.href="register.html";
 
                     }
                     else{

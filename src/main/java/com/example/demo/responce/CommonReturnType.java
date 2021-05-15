@@ -1,7 +1,7 @@
 package com.example.demo.responce;
 
 public class CommonReturnType {
-    //表明对应请求返回的处理结果 success或fail
+    //Response Status, Success or Fail
     private String status;
     //if status==success, return needed object
     //if status==fail, return error format

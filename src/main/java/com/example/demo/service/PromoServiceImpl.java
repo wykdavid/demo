@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+//Promotion Service, remain unfinished
 @Service
 public class PromoServiceImpl implements PromoService{
 

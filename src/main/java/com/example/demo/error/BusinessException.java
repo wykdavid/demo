@@ -3,7 +3,7 @@ package com.example.demo.error;
 public class BusinessException extends Exception implements CommonError{
     private CommonError commonError;
 
-    //receive embuserr parameter, build busexception
+    //receive enum business err parameter, build business exception
     public BusinessException(CommonError commonError){
         super();
         this.commonError = commonError;

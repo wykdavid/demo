@@ -19,6 +19,7 @@ public class CacheServiceImpl implements CacheService{
                 .maximumSize(100)
                 .expireAfterWrite(60, TimeUnit.SECONDS).build();
     }
+    //Local guava cache
     @Override
     public void setCommonCache(String key, Object value) {
         cache.put(key,value);

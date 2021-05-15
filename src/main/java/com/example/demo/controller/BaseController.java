@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//Handle all exceptions
 public class BaseController {
 
     public static final String CONTENT_TYPE_FORMED = "application/x-www-form-urlencoded";

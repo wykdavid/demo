@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-
+    //list user's orders
     public List<ItemModel> listMyOrder(Integer userId) {
 
         List<UserOrderDO> UserItemDOList = this.userOrderDOMapper.listMyOrder(userId);
@@ -132,6 +132,7 @@ public class UserServiceImpl implements UserService {
         return itemModelList;
     }
 
+    //list user's uploaded item
     @Override
     public List<ItemModel> listMyItem(Integer userId) {
         List<UserItemDO> UserItemDOList = this.userItemDOMapper.listMyItem(userId);
@@ -144,6 +145,7 @@ public class UserServiceImpl implements UserService {
         return itemModelList;
     }
 
+    //object convert
     private ItemModel convertModelFromDataObject(ItemDO itemDo, ItemStockDO itemStockDO) {
         ItemModel itemModel = new ItemModel();
         BeanUtils.copyProperties(itemDo, itemModel);
@@ -151,6 +153,7 @@ public class UserServiceImpl implements UserService {
         itemModel.setStock(itemStockDO.getStock());
         return itemModel;
     }
+
 
     public UserPasswordDO convertPasswordFromModel(UserModel userModel) {
         if (userModel == null) {

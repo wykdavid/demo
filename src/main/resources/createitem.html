@@ -26,19 +26,19 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label">price</label>
+        <label class="control-label">Price</label>
         <div>
             <input class="form-control" type = "text" placeholder="price" name = "price" id = "price">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label">image</label>
+        <label class="control-label">Image</label>
         <div>
             <input class="form-control" type = "text" placeholder="imgUrl" name = "imgUrl" id = "imgUrl">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label">stock</label>
+        <label class="control-label">Stock</label>
         <div>
             <input class="form-control" type = "text" placeholder="stock" name = "stock" id = "stock">
         </div>
@@ -56,12 +56,12 @@
 <script>
     jQuery(document).ready(function () {
         $("#create").on("click",function () {
-            var token = window.localStorage["token"];
-            if(token==null){
-                alert("未登录，无法下单");
-                window.location.href="login.html";
-                return false;
-            }
+	    var token = window.localStorage["token"];
+	    if(token == null){
+		    alert("Please login");
+		    window.location.href=login.html;
+		    return false;
+	    }
             var title =$("#title").val();
             var description =$("#description").val();
             var price =$("#price").val();
@@ -105,15 +105,15 @@
                 xhrFields:{withCredentials:true},
                 success:function(data){
                     if(data.status=="success"){
-                        alert("创建成功");
+                        alert("Create successfully");
 
                     }
                     else{
-                        alert("创建失败"+data.data.errMsg);
+                        alert("Fail to create"+data.data.errMsg);
                     }
                 },
                 error:function (data) {
-                    alert("创建失败 "+data.responseText);
+                    alert("Fail to create "+data.responseText);
                 }
             });
             return false;

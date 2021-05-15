@@ -14,9 +14,9 @@
 <div class="content">
     <h3 class="form-title">User Login</h3>
     <div class="form-group">
-        <label class="control-label">telephone</label>
+        <label class="control-label">Email</label>
         <div>
-            <input class="form-control" type = "text" placeholder="telephone" name = "telephone" id = "telephone">
+            <input class="form-control" type = "text" placeholder="SU Email" name = "telephone" id = "telephone">
         </div>
     </div>
 
@@ -68,17 +68,17 @@
                 xhrFields:{withCredentials:true},
                 success:function(data){
                     if(data.status=="success"){
-                        alert("登录成功");
+                        alert("Login Successfully");
                         var token = data.data;
                         window.localStorage["token"] = token;
                         window.location.href="listitem.html";
                     }
                     else{
-                        alert("登录失败"+data.data.errMsg);
+                        alert("Fail to login"+data.data.errMsg);
                     }
                 },
                 error:function (data) {
-                    alert("注册失败 "+data.responseText);
+                    alert("Fail to login "+data.responseText);
                 }
             });
             return false;

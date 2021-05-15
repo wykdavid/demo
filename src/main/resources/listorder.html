@@ -18,22 +18,22 @@
             <thead>
             <tr>
                 <th>
-                    商品名
+                    Product Name
                 </th>
                 <th>
-                    商品图片
+                    Pic
                 </th>
                 <th>
-                    商品描述
+                    Description
                 </th>
                 <th>
-                    商品价格
+                    Price
                 </th>
                 <th>
-                    商品库存
+                    Stock
                 </th>
                 <th>
-                    商品销量
+                    Sales
                 </th>
             </tr>
             </thead>
@@ -52,7 +52,7 @@
     jQuery(document).ready(function () {
         var token = window.localStorage["token"];
         if(token==null){
-            alert("未登录，无法查看订单");
+            alert("Please Login");
             window.location.href="login.html";
             return false;
         }
@@ -67,14 +67,14 @@
 
                 }
                 else{
-                    alert("获取商品信息失败"+data.data.errMsg);
+                    alert("Fail to get Order information"+data.data.errMsg);
                     if(data.data.errCode == 20003){
                         window.location.href="login.html";
                     }
                 }
             },
             error:function (data) {
-                alert("获取商品信息失败 "+data.responseText);
+                alert("Fail to get order information "+data.responseText);
             }
         });
 
