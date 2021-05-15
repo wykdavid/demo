@@ -4,11 +4,11 @@ http://3.137.170.120:8080/resources/listitem.html(List product page)
 http://3.137.170.120:8080/resources/createitem.html(Create product page)
 http://3.137.170.120:8080/resources/login.html(Login page)
 
-This project is the source code of Qucik Orange Backend. To run this project on your device, you need to install redis and mysql first. The configuration file is called application.yml.
-You can modify this file according to your personal condition.
+This project is the source code of Qucik Orange Backend. To run this project on your device, you need to install redis and mysql first and run redis server and mysql server. The configuration file is called application.yml.
+You can modify this file according to your personal condition. To access the service on local, you can go to the src/main/resources directory, there are several html files. Open any one of the files, then you will be able to access the corresponding service.
 
 The register function is completed, you could use your SU email to register. Our system will generaze a otp code which you will need during your registera. 
-However, we did not implement the email sending service, so the otp will not be sent to your email. Instead, we just print the otp code on the console. 
+However, we did not implement the email sending service, so the otp code will not be sent to your email. Instead, we just print the otp code on the console. 
 In that case, if you want to register your own account on your local device, you can get you otp code by checking the console. If you want to view our online service, 
 you could use account ywu268@syr.edu with password 123. If you do want to create your own account on our online service, you can use the test.pem file to connect to two cloud
 servers.
