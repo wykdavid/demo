@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+//Controller for all order-related services
 @Controller("order")
 @RequestMapping("/order")
 @CrossOrigin(allowCredentials = "true",allowedHeaders = "*")

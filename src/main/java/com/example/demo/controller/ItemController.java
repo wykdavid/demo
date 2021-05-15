@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+//Controller for all item-related services
 @Controller("item")
 @RequestMapping("/item")
 @CrossOrigin(allowCredentials = "true",allowedHeaders = "*")

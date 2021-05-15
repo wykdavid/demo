@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ValidationResult {
-    //校验结果
+    //validation result
     private boolean hasError = false;
 
     private Map<String,String> errMsgMap = new HashMap<>();
@@ -27,7 +27,7 @@ public class ValidationResult {
         this.errMsgMap = errMsgMap;
     }
 
-    //实现通用的格式化字符串信息获取错误结果的们三个方法
+    //get error message
     public String getErrMsg(){
         return StringUtils.join(errMsgMap.values().toArray(),",");
     }

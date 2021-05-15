@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class WebServerConfiguration implements WebServerFactoryCustomizer<ConfigurableTomcatWebServerFactory> {
 
-    //使用对应工厂类提供的接口来定制化tomcat connector
+    //Self define tomcat connector
 
 
 
@@ -25,9 +25,9 @@ public class WebServerConfiguration implements WebServerFactoryCustomizer<Config
             public void customize(Connector connector) {
                 Http11NioProtocol http11NioProtocol = (Http11NioProtocol) connector.getProtocolHandler();
 
-                //30s 无请求自动断开
+                //30s disconnect if no request
                 http11NioProtocol.setKeepAliveTimeout(30000);
-                //客户端最大请求数
+                //max request number of clients
                 http11NioProtocol.setMaxKeepAliveRequests(10000);
             }
         });

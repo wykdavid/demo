@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import serialize.JodaDateTimeJsonDeserializer;
 import serialize.JodaDateTimeJsonSerializer;
 
+//redis service configuration
 @Component
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 3600)
 public class RedisConfig {

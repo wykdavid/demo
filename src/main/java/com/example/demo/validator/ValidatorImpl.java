@@ -8,7 +8,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
 
-
+//validator objects
 @Component
 public class ValidatorImpl implements InitializingBean {
 
@@ -31,7 +31,7 @@ public class ValidatorImpl implements InitializingBean {
     }
     @Override
     public void afterPropertiesSet() throws Exception {
-        //将hibernatevalidator通过工厂的初始化方式使其实例化
+        //initialize hibernatevalidator through factory
         this.validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 }

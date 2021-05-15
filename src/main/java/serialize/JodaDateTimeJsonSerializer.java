@@ -11,6 +11,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import java.io.IOException;
 
+//serializer
 public class JodaDateTimeJsonSerializer extends JsonSerializer<DateTime> {
 
     @Override
